@@ -33,14 +33,14 @@ import {
   GridToolbarFilterButton,
 } from '@mui/x-data-grid';
 
-export default function GridView() {
-
+export function GridView() {
   return ( 
-  <div className = "App" >
-    <MyComponent style={{height: 400}}/>
+  <div className = "GridView">
+    <MyComponent style={{height: 400}} />
   </div>
   );
 };
+
 
 
 
@@ -82,8 +82,6 @@ function MyComponent() {
     }
   ];
 
-
-
   // Note: the empty deps array [] means
   // this useEffect will run once
   // similar to componentDidMount()
@@ -107,7 +105,6 @@ function MyComponent() {
   }, 
 []
 ); 
-
 
   if (error) {
     return <div > Error: {
@@ -140,3 +137,9 @@ function MyComponent() {
   }
 }; 
 
+// const root = ReactDOM.createRoot(
+//   document.getElementById('root')
+// );
+// root.render(App());
+
+// ReactDOM.render(<App />);
