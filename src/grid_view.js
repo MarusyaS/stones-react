@@ -11,13 +11,8 @@ import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import ReactDOM from 'react-dom';
-// import {
-//   SearchState,
-//   IntegratedFiltering,
-// } from '@devexpress/dx-react-grid';
-// import {
-//   SearchPanel,
-// } from '@devexpress/dx-react-grid-material-ui';
+
+import { Link, useParams } from "react-router-dom";
 
 import React, {
   useEffect,
@@ -53,7 +48,11 @@ function MyComponent() {
   const columns = [{
       field: 'ID',
       headerName: 'ID',
-      width: 70
+      width: 70,
+      // renderCell: (params) => (
+      //   <Link to={`inscriptions/${items.id}`}>{items.ID}</Link>
+      //   // <Link href={`mailto:${params.value}`}>{params.value!.toString()}</Link>
+      // )
     },
     {
       field: 'Name',
