@@ -11,6 +11,7 @@ import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import ReactDOM from 'react-dom';
+import Grid from '@mui/material/Grid';
 
 import { Link, useParams } from "react-router-dom";
 
@@ -114,7 +115,10 @@ function MyComponent() {
 
     return ( 
       // console.log(items[1]);
+      <Grid Container>
+        <Grid item>
       <div style={{ height: 800, width: '100%' }}>
+
       <DataGrid 
         getRowId = {(row) => row.ID}
         rows = {items}
@@ -131,6 +135,8 @@ function MyComponent() {
         }}
       />
       </div>
+      </Grid>
+      </Grid>
     )
   }
 }; 

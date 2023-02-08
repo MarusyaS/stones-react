@@ -38,7 +38,7 @@ function BasicTable() {
   // const model_path = ''
 
   useEffect(() => {
-    let url = `http://127.0.0.1:8000/stonelib/inscription/R00101/`
+    let url = `http://127.0.0.1:8000/stonelib/inscription/${ID}/`
     
     fetch(url)
       .then(res => res.json())
@@ -84,7 +84,7 @@ function BasicTable() {
   }
     console.log(context.Name)
   return (
-    <Grid container spacing={2} justifyContent="center">
+    <Grid container spacing={2} justifyContent="center" sx={{ m: 2 }}>
       <Grid item xs={4}>
 
         <TableContainer component={Paper}  >
