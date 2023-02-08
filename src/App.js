@@ -3,6 +3,7 @@ import {Homepage} from './homepage';
 import {GridView} from './grid_view';
 import {SingleView} from './single_view';
 import ErrorPage from "./error_page";
+import {ResponsiveAppBar} from './navbar';
 // import {NoPage} from './NoPage';
 import { BrowserRouter as Router, Link, Routes, Route } from "react-router-dom";
 
@@ -17,13 +18,15 @@ export default function App() {
       </header> */}
 
       <Router>
-        <Routes>
-            <Route path='/' element={<Homepage/>} errorElement={<ErrorPage />}/>
-            <Route path='/inscriptions' element={<GridView/>}/>
-            <Route path='/inscriptions/:ID' element={<SingleView/>}/>
+        <div>
+          <ResponsiveAppBar />
+          <Routes>
+              <Route path='/' element={<Homepage/>} errorElement={<ErrorPage />}/>
+              <Route path='/inscriptions' element={<GridView/>}/>
+              <Route path='/inscriptions/:ID' element={<SingleView/>}/>
             {/* <Route path='*' element={<NoPage/>}/> */}
-        </Routes>
-
+          </Routes>
+        </div>
       </Router>
     </>
   );

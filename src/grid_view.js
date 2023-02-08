@@ -49,10 +49,9 @@ function MyComponent() {
       field: 'ID',
       headerName: 'ID',
       width: 70,
-      // renderCell: (params) => (
-      //   <Link to={`inscriptions/${items.id}`}>{items.ID}</Link>
-      //   // <Link href={`mailto:${params.value}`}>{params.value!.toString()}</Link>
-      // )
+      renderCell: (items) => (
+        <Link to={`${items.row.ID}`} target="_blank">{items.row.ID}</Link>),
+
     },
     {
       field: 'Name',
@@ -136,9 +135,3 @@ function MyComponent() {
   }
 }; 
 
-// const root = ReactDOM.createRoot(
-//   document.getElementById('root')
-// );
-// root.render(App());
-
-// ReactDOM.render(<App />);
