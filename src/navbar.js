@@ -32,6 +32,11 @@ const links = [
       name: 'Grid',
       label: 'Каталог'
   }, 
+  {
+    to: '/map',
+    name: 'Map',
+    label: 'Карта'
+  },
 ]   
 
 export function ResponsiveAppBar() {
