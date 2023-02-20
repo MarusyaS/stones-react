@@ -2,7 +2,7 @@
 import {Homepage} from './homepage';
 import {GridView} from './grid_view';
 import {SingleView} from './single_view';
-import {Map} from './map';
+import {NewMap} from './map';
 import ErrorPage from "./error_page";
 import {ResponsiveAppBar} from './navbar';
 // import {NoPage} from './NoPage';
@@ -25,7 +25,7 @@ export default function App() {
               <Route path='/' element={<Homepage/>} errorElement={<ErrorPage />}/>
               <Route path='/inscriptions' element={<GridView/>}/>
               <Route path='/inscriptions/:ID' element={<SingleView/>}/>
-              <Route path='/map' element={<Map/>}/>
+              <Route path='/map' element={<NewMap/>}/>
             {/* <Route path='*' element={<NoPage/>}/> */}
           </Routes>
         </div>
@@ -33,5 +33,5 @@ export default function App() {
     </>
   );
 
-}
+};
 
