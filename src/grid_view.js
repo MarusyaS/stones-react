@@ -78,7 +78,22 @@ function MyComponent() {
       field: 'DigitalDocumentation',
       headerName: 'Задокументировано',
       width: 100
-    }
+    },
+    {
+      field: "CitDTS",
+      headerName: 'Древнетюркский словарь',
+    },
+  {
+    field: "CitVasilev",
+    headerName: 'Васильев',
+  },
+  { 
+    field:  "CitBazylhan",
+    headerName: 'Базылхан',
+  },
+  {   field: "CitKormushin",
+  headerName: 'Кормушин'
+}
   ];
 
   // Note: the empty deps array [] means
@@ -137,6 +152,7 @@ function MyComponent() {
       </div>
       </Grid>
       </Grid>
+   
     )
   }
 }; 

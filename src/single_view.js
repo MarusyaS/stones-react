@@ -28,13 +28,13 @@ function BasicTable() {
   const [items, setItems] = useState();
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
-  const image_path = `/mnt/c/Users/marus/Documents/DH/ep_tur/files/images/${ID}.jpg/`;
+  // const image_path = `/mnt/c/Users/marus/Documents/DH/ep_tur/files/images/${ID}.jpg/`;
   // const img_path = path.format({
   //   root: '/ignored',
   //   dir: '/mnt/c/users/marus/Documents/DH/ep_tur/files/images/${items.ID}.jpg',
   //   base: '${items.ID}[A-Z].jpg',
   // });
-  console.log(image_path + '1-3-1.png')
+  // console.log(image_path + '1-3-1.png')
   // const model_path = ''
 
   useEffect(() => {
