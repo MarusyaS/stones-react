@@ -6,6 +6,7 @@ import L from 'leaflet';
 
 import './map.css';
 import {Icon}  from "leaflet";
+import { amber } from '@mui/material/colors';
 import React, {
   useEffect,
   useState
@@ -13,6 +14,9 @@ import React, {
 
 import { Link } from "react-router-dom";
 import LegendControl from "./Legend";
+import CircleIcon from '@mui/icons-material/Circle';
+
+import { Typography,Box, Paper, Grid, TableBody, TableRow, TableCell, TableContainer, Table } from '@mui/material';
 
 const position = [47.68, 103.90];
 
@@ -50,26 +54,7 @@ var markerShapes = [ { shape: '<circle cx="10" cy="10" r="5" />', color : '#fc92
 // });
 
 
-// const Legend = () => (
-//   <div className="map-legend-container">
-//   <div className="map-legend">
-//     <div className="map-legend-item">
-//       <div className="map-legend-color" style={{ backgroundColor: 'red' }}></div>
-//       <div className="map-legend-label">Marker 1</div>
-//       <div className="map-legend-icon">
-//         <img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png" alt="Marker Icon" />
-//       </div>
-//     </div>
-//     <div className="map-legend-item">
-//       <div className="map-legend-color" style={{ backgroundColor: 'green' }}></div>
-//       <div className="map-legend-label">Marker 2</div>
-//       <div className="map-legend-icon">
-//         <img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png" alt="Marker Icon" />
-//       </div>
-//     </div>
-//   </div>
-//   </div>
-// );
+
 
 
 
@@ -108,8 +93,9 @@ export function NewMap() {
   } else {
 
     return (
-
-      <Container  style={{height: '500', width: '600'}} sx={{ margin: 4 }} >        
+      <Grid container spacing={2}  alignItems="stretch" justifyContent="center" sx={{ m: 2 }}>
+      <Grid item xs={8}>
+      {/* <Container  style={{height: '500', width: '600'}} sx={{ margin: 4 }} >         */}
 
 
       <MapContainer center={position} zoom={8} scrollWheelZoom={true} >
@@ -117,7 +103,6 @@ export function NewMap() {
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           />
-          {/* <Legend/> */}
           {items.map(
             item =>(
               <Marker 
@@ -126,7 +111,7 @@ export function NewMap() {
               // icon = {item.Type.startsWith('П') ? greenIcon : redIcon}
               icon = {item.Type.startsWith('П') ? L.divIcon({ html: `<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
               viewBox="0 0 100 100" xml:space="preserve">
-              <circle style="fill:#092c85;stroke:#fcfcfc;stroke-width:4;stroke-miterlimit:10;"  cx="50" cy="50" r="46"/>
+              <circle style="fill:#ffca28;stroke:#fcfcfc;stroke-width:4;stroke-miterlimit:10;"  cx="50" cy="50" r="46"/>
               <text x="50%" y="50%" text-anchor="middle" fill="white" font-size="70px" font-family="Arial" dy=".3em">П</text>
               </svg>` , 
             className: "funerary",
@@ -155,14 +140,45 @@ export function NewMap() {
             )
           )}
 
-     
-        <LegendControl />
-
-
-          
+              
       </MapContainer>
+      </Grid>
 
-  </Container>  
+      <Grid item xs={4}>
+        <Box>
+        <Paper elevation={3}> 
+
+        <TableContainer component={Paper}  >
+          <Table aria-label="simple table" >
+            <TableBody>
+              <TableRow>
+                <TableCell align="center" colSpan={3} sx={{fontSize:23}}>
+                <Typography> Условные обозначения </Typography>
+                </TableCell>
+               
+              </TableRow>
+                  <TableRow>
+                    <TableCell> 
+                    <CircleIcon sx={{ color: amber[400] }} />
+            </TableCell>
+              <TableCell> <Typography> Поминальный комплекс </Typography>  </TableCell>
+                  </TableRow>
+                  <TableRow>
+                  <TableCell> 
+            </TableCell>
+              <TableCell> <Typography> Наскальные надписи </Typography>  </TableCell>
+                </TableRow>
+
+              </TableBody>
+              </Table>
+              </TableContainer>
+        </Paper> 
+        </Box>
+        </Grid>            
+
+      </Grid>
+
+
      )
 
 }
@@ -170,3 +186,13 @@ export function NewMap() {
 
 
 
+// {
+//   palette: {
+//     primary: {
+//       main: '#ffd180',
+//     },
+//     secondary: {
+//       main: '#004d40',
+//     },
+//   },
+// }

@@ -1,12 +1,15 @@
 import {ResponsiveAppBar} from './navbar';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
 
 const Homepage = () => {
     return (
         <div>
-            <h1>Портал Тюркская Руническая Эпиграфика</h1>
+            <Box>
+            <Typography variant='h3'>Портал Тюркская Руническая Эпиграфика</Typography>
             <h2>Что сделано:</h2>
             <ul>
-                <li>данные на сайт поступают из подключенной реляционной БД</li>
+                <li><Typography>данные на сайт поступают из подключенной реляционной БД </Typography></li>
                 <li>на странице "Каталог" можно посмотреть (а также отфильтровать) список всех объектов БД </li>
                 <li>со страницы Каталога по клику на ID можно перейти на страничку объекта </li>
                 <li>добавлена карта</li>
@@ -30,7 +33,7 @@ const Homepage = () => {
                 
                 
                 </ul>
-
+                </Box>
         </div>
        
     )

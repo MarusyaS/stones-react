@@ -50,9 +50,9 @@ export function ResponsiveAppBar() {
       setAnchorElUser(event.currentTarget);
     };
   
-    const handleCloseNavMenu = () => {
-      setAnchorElNav(null);
-    };
+    // const handleCloseNavMenu = () => {
+    //   setAnchorElNav(null);
+    // };
   
     const handleCloseUserMenu = () => {
       setAnchorElUser(null);
@@ -106,7 +106,7 @@ export function ResponsiveAppBar() {
                 <Link to={link.to}>
                 <Button
                   key={link.name}
-                  onClick={handleCloseNavMenu}
+                  // onClick={handleCloseNavMenu}
                   sx={{ my: 2, color: 'white', display: 'block' }}
                 >
                   {link.label}
