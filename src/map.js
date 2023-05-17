@@ -12,6 +12,7 @@ import React, {
 } from "react";
 
 import { Link } from "react-router-dom";
+import LegendControl from "./Legend";
 
 const position = [47.68, 103.90];
 
@@ -21,23 +22,32 @@ L.Icon.Default.mergeOptions({
   shadowUrl: require('leaflet/dist/images/marker-shadow.png')
 });
 
-var greenIcon = new L.Icon({
-  iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
-  shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
-  iconSize: [25, 41],
-  iconAnchor: [12, 41],
-  popupAnchor: [1, -34],
-  shadowSize: [41, 41]
-});
+var markerShapes = [ { shape: '<circle cx="10" cy="10" r="5" />', color : '#fc9272' ,
+ letter: '<text x="50%" y="50%" text-anchor="middle" fill="white" font-size="100px" font-family="Arial" dy=".3em">П</text>', 
+ text: 'Поминальный комплекс' },
+        { shape: '<circle cx="10" cy="10" r="5" />', color : '#fc9272' , 
+        letter : '<text x="50%" y="50%" text-anchor="middle" fill="white" font-size="100px" font-family="Arial" dy=".3em">Н</text>',
+        text: 'Наскальные надписи' }];
 
-var redIcon = new L.Icon({
-  iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
-  shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
-  iconSize: [25, 41],
-  iconAnchor: [12, 41],
-  popupAnchor: [1, -34],
-  shadowSize: [41, 41]
-});
+
+
+// var greenIcon = new L.Icon({
+//   iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
+//   shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+//   iconSize: [25, 41],
+//   iconAnchor: [12, 41],
+//   popupAnchor: [1, -34],
+//   shadowSize: [41, 41]
+// });
+
+// var redIcon = new L.Icon({
+//   iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
+//   shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+//   iconSize: [25, 41],
+//   iconAnchor: [12, 41],
+//   popupAnchor: [1, -34],
+//   shadowSize: [41, 41]
+// });
 
 
 // const Legend = () => (
@@ -113,10 +123,26 @@ export function NewMap() {
               <Marker 
               key = {item.ID}
               position={[item.LAT, item.LON]}
-              icon = {item.Type.startsWith('П') ? greenIcon : redIcon} >
+              // icon = {item.Type.startsWith('П') ? greenIcon : redIcon}
+              icon = {item.Type.startsWith('П') ? L.divIcon({ html: `<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+              viewBox="0 0 100 100" xml:space="preserve">
+              <circle style="fill:#092c85;stroke:#fcfcfc;stroke-width:4;stroke-miterlimit:10;"  cx="50" cy="50" r="46"/>
+              <text x="50%" y="50%" text-anchor="middle" fill="white" font-size="70px" font-family="Arial" dy=".3em">П</text>
+              </svg>` , 
+            className: "funerary",
+            iconSize: [20, 20],
+            iconAnchor: [10, 0]}) : L.divIcon({ html:`<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+	          viewBox="0 0 100 100" xml:space="preserve">
+            <circle style="fill:#f79925;stroke:#fcfcfc;stroke-width:4;stroke-miterlimit:10;"  cx="50" cy="50" r="46"/>
+            <text x="50%" y="50%" text-anchor="middle" fill="white" font-size="70px" font-family="Arial" dy=".3em">Н</text>
+            </svg>`, 
+              className: "rock",
+              iconSize: [20, 20],
+              iconAnchor: [10, 0]})} 
+          >
             <Popup>
             <b> {item.NameToponim} </b> <br /> {item.NamePerson} <br/> Первое упоминание: {item.FirstNotion} <br /> Первые раскопки: {item.YearExcavate} <br />
-              {item.sites.map(
+              {item.inscriptions.map(
                 elem => (
                   <div>
                    <Link to={`/inscriptions/${elem.ID}`} target="_blank">{elem.Name} </Link> 
@@ -129,7 +155,9 @@ export function NewMap() {
             )
           )}
 
-          {/* <Legend /> */}
+     
+        <LegendControl />
+
 
           
       </MapContainer>
