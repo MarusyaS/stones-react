@@ -6,7 +6,7 @@ import L from 'leaflet';
 
 import './map.css';
 import {Icon}  from "leaflet";
-import { amber } from '@mui/material/colors';
+import { orange, cyan } from '@mui/material/colors';
 import React, {
   useEffect,
   useState
@@ -15,7 +15,7 @@ import React, {
 import { Link } from "react-router-dom";
 import LegendControl from "./Legend";
 import CircleIcon from '@mui/icons-material/Circle';
-
+import SquareIcon from '@mui/icons-material/Square';
 import { Typography,Box, Paper, Grid, TableBody, TableRow, TableCell, TableContainer, Table } from '@mui/material';
 
 const position = [47.68, 103.90];
@@ -96,12 +96,14 @@ export function NewMap() {
       <Grid container spacing={2}  alignItems="stretch" justifyContent="center" sx={{ m: 2 }}>
       <Grid item xs={8}>
       {/* <Container  style={{height: '500', width: '600'}} sx={{ margin: 4 }} >         */}
+      <Box>
+        <Paper elevation={3}> 
 
-
-      <MapContainer center={position} zoom={8} scrollWheelZoom={true} >
+      <MapContainer center={position} zoom={8} scrollWheelZoom={true} attributionControl={false}  >
+      {/* // attributionControl={false} > */}
           <TileLayer
-            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-            attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+            url = "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
+            attribution='Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
           />
           {items.map(
             item =>(
@@ -111,14 +113,14 @@ export function NewMap() {
               // icon = {item.Type.startsWith('П') ? greenIcon : redIcon}
               icon = {item.Type.startsWith('П') ? L.divIcon({ html: `<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
               viewBox="0 0 100 100" xml:space="preserve">
-              <circle style="fill:#ffca28;stroke:#fcfcfc;stroke-width:4;stroke-miterlimit:10;"  cx="50" cy="50" r="46"/>
+              <circle style="fill:#ef6c00;stroke:#fcfcfc;stroke-width:4;stroke-miterlimit:10;"  cx="50" cy="50" r="46"/>
               <text x="50%" y="50%" text-anchor="middle" fill="white" font-size="70px" font-family="Arial" dy=".3em">П</text>
               </svg>` , 
             className: "funerary",
             iconSize: [20, 20],
             iconAnchor: [10, 0]}) : L.divIcon({ html:`<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
 	          viewBox="0 0 100 100" xml:space="preserve">
-            <circle style="fill:#f79925;stroke:#fcfcfc;stroke-width:4;stroke-miterlimit:10;"  cx="50" cy="50" r="46"/>
+            <circle style="fill:#006064;stroke:#fcfcfc;stroke-width:4;stroke-miterlimit:10;"  cx="50" cy="50" r="46"/>
             <text x="50%" y="50%" text-anchor="middle" fill="white" font-size="70px" font-family="Arial" dy=".3em">Н</text>
             </svg>`, 
               className: "rock",
@@ -142,6 +144,9 @@ export function NewMap() {
 
               
       </MapContainer>
+        </Paper> </Box>
+
+
       </Grid>
 
       <Grid item xs={4}>
@@ -159,12 +164,13 @@ export function NewMap() {
               </TableRow>
                   <TableRow>
                     <TableCell> 
-                    <CircleIcon sx={{ color: amber[400] }} />
+                    <CircleIcon sx={{ color: orange[800] }} />
             </TableCell>
               <TableCell> <Typography> Поминальный комплекс </Typography>  </TableCell>
                   </TableRow>
                   <TableRow>
                   <TableCell> 
+                  <SquareIcon sx={{ color: cyan[900] }} />
             </TableCell>
               <TableCell> <Typography> Наскальные надписи </Typography>  </TableCell>
                 </TableRow>
