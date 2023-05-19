@@ -103,15 +103,16 @@ export function ResponsiveAppBar() {
             </Typography> */}
             <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
               {links.map((link) => (
-                <Link to={link.to}>
+                // <Link to={link.to}>
                 <Button
                   key={link.name}
+                  component={Link} to={link.to} 
                   // onClick={handleCloseNavMenu}
                   sx={{ my: 2, color: 'white', display: 'block' }}
                 >
                   {link.label}
                 </Button>
-                </Link> 
+                // </Link> 
               ))}
             </Box>
   

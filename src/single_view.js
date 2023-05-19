@@ -9,9 +9,10 @@ import Paper from '@mui/material/Paper';
 import { Link, useParams } from "react-router-dom";
 import {useEffect, useState} from "react";
 import Grid from '@mui/material/Grid';
-import { Button } from '@mui/material';
+import { Button, Container } from '@mui/material';
 import { styled } from '@mui/material/styles';
-// import {ModelMetadata} from './model_metadata';
+import {ModelMetadata} from './model_metadata';
+import { ImageGallery } from './image_gallery';
 
 import Box from '@mui/material/Box';
 import Collapse from '@mui/material/Collapse';
@@ -19,6 +20,7 @@ import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
+
 
 export function SingleView() {
     return ( 
@@ -28,112 +30,9 @@ export function SingleView() {
     );
   };
 
-
-  function ModelMetadata({ items }) {
-    //   const { row } = items.models[0];
-      const [open, setOpen] = React.useState(false);
-    //     const context = {
-    //     'ID' : 'ID',
-    //     'Process' : 'Процесс',
-    //     'Camera': 'Камера',
-    //     'Lens': 'Объектив',
-    //     'FrameCount' : 'Количество снимков',
-    //     'Scheme': 'Схема съёмки',
-    //     'Date':'Дата съёмки',
-    //     'PolygonCount' :'Количество полигонов, млн',
-    //     'PolygonCM' : 'Площадь поверхности, кв.см.' 
-    // };
-      return (
-        <TableContainer component={Paper} sx={5}>
-        <Table aria-label="collapsible table">
-          <TableRow sx={{ '& > *': { borderBottom: 'unset' } }}>
-            <TableCell>
-              <IconButton
-                aria-label="expand row"
-                size="small"
-                onClick={() => setOpen(!open)}
-              >
-                {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
-              </IconButton>
-            </TableCell>
-            <TableCell component="th" scope="row">
-            <Typography variant="h8" gutterBottom component="div">
-                    Метаданные
-                  </Typography>
-            </TableCell>
-            
-          </TableRow>
-    
-          <TableRow>
-            <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
-              <Collapse in={open} timeout="auto" unmountOnExit>
-                <Box sx={{ margin: 1 }}>
-                  <Table size="small" aria-label="purchases">
-                    <TableHead>
-                      <TableRow>
-                        <TableCell>Процесс</TableCell>
-                        <TableCell>Камера</TableCell>
-                        <TableCell >Объектив</TableCell>
-                        <TableCell align="right">Количество снимков</TableCell>
-                        <TableCell align="right">Схема съёмки</TableCell>
-                        <TableCell align="right">Дата съёмки</TableCell>
-                        <TableCell align="right">Количество полигонов, млн</TableCell>
-                        <TableCell align="right">Площадь поверхности, кв.см.</TableCell>
-                      </TableRow>
-                    </TableHead>
-                    <TableBody>
-                        <TableRow key={items.models[0].ID}>
-                          <TableCell component="th" scope="row">
-                            {items.models[0].Process}
-                          </TableCell>
-                          <TableCell>{items.models[0].Camera}</TableCell>
-                          <TableCell>{items.models[0].Lens}</TableCell>
-                          <TableCell>{items.models[0].FrameCount}</TableCell>
-                          <TableCell>{items.models[0].Scheme}</TableCell>
-                          <TableCell>{items.models[0].Date}</TableCell>
-                          <TableCell>{items.models[0].PolygonCount}</TableCell>
-                          <TableCell>{items.models[0].PolygonCM}</TableCell>
-    
-                        </TableRow>
-                
-                    </TableBody>
-                  </Table>
-                </Box>
-              </Collapse>
-            </TableCell>
-          </TableRow>
-     </Table> </TableContainer>
-      );
-    }
-    
-
-function ImageView({ items }) {
-  console.log('images' + items);
-  if (items !== undefined){
-    console.log('images' + items.images);
-
-    if (items.images.length === 0) {
-      return <div>No images</div>;
-    }
-  }
   
-    return (
-      <Grid container spacing={2}>
-        {items.images.map((image) => {
-          let image_id = image.ID;
-         
-          let low_image_path = `https://www.rssdabase.su/RSSDA/imagery/ve/300px/${image_id}.png`;
-          let high_image_path = `https://www.rssdabase.su/RSSDA/imagery/ve/1000px/${image_id}.png`;
-  
-          return (
-            <Grid item xs={4} key={image_id}>
-              <img src={low_image_path} alt={`Image ${image_id}`} />
-            </Grid>
-          )
-        })}
-      </Grid>
-    );
-  };
+
+
     
 
 
@@ -155,7 +54,7 @@ let model_path = (model_id !== 0) ? `https://rssda.su/auxil/${model_id}.html` : 
 
   return(
 
-  <Grid container spacing={3}  alignItems="stretch" justifyContent="space-evenly" sx={{ m: 2 }}>
+  <Grid container spacing={3} rowSpacing={5} alignItems="stretch" justifyContent="space-evenly" sx={{ m: 2 }}>
       <Grid item xs={5}>
 
         <TableContainer component={Paper}  >
@@ -178,11 +77,11 @@ let model_path = (model_id !== 0) ? `https://rssda.su/auxil/${model_id}.html` : 
       </Table>
     </TableContainer>
     </Grid>
-    <Grid item xs={5}>
+    <Grid item xs={7}>
       {model_id ? (
          <> 
-      <iframe src = {model_path} name="model" width="100%" height="90%" />
-      <Button variant="outlined" fullWidth = 'true' href={model_path} >Полноэкранный режим</Button>
+      <iframe src = {model_path} name="model" width="100%" height="100%" />
+      <Button variant="outlined" fullWidth = {true} href={model_path} >Полноэкранный режим</Button>
       <ModelMetadata items={items}/>
       </>   
       ) : 
@@ -190,11 +89,14 @@ let model_path = (model_id !== 0) ? `https://rssda.su/auxil/${model_id}.html` : 
       } 
     </Grid>
 
-    <ImageView items={items}/>
-  
+      <Grid container xs={7}> 
+      <Grid item>
+    {/* <ImageView items={items}/> */}
+    <ImageGallery items={items}/>
+    </Grid>
+    </Grid>
     
-    
-    </Grid>  
+     </Grid>  
         
         
 
