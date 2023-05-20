@@ -12,6 +12,7 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import ReactDOM from 'react-dom';
 import Grid from '@mui/material/Grid';
+import API_BASE_URL from './config';
 
 import { Link, useParams } from "react-router-dom";
 
@@ -100,7 +101,7 @@ function MyComponent() {
   // this useEffect will run once
   // similar to componentDidMount()
   useEffect(() => {
-    fetch("http://127.0.0.1:8000/stonelib/inscription")
+    fetch(API_BASE_URL + "inscription")
       .then(res => res.json())
       .then(
         (result) => {
@@ -130,11 +131,27 @@ function MyComponent() {
 
     return ( 
       // console.log(items[1]);
-      <Grid Container>
-        <Grid item>
-      <div style={{ height: 800, width: '100%' }}>
+      <Grid Container >
+        <Grid item >
+      {/* <div style={{ height: 800, width: '100%' }}> */}
 
       <DataGrid 
+      localeText={{
+        columnsPanelTextFieldLabel: "Поиск по колонкам",
+        columnsPanelTextFieldPlaceholder: "Поиск...",
+        toolbarColumns: 'Колонки',
+        toolbarColumnsLabel: 'Выбрать колонку',
+        toolbarFilters: 'Фильтры',
+  toolbarFiltersLabel: 'Открыть фильтры',
+  toolbarFiltersTooltipHide: 'Скрыть',
+  toolbarFiltersTooltipShow: 'Открыть',
+  toolbarQuickFilterPlaceholder: 'Поиск...',
+  toolbarQuickFilterLabel: 'Поиск',
+  // https://github.com/mui/mui-x/blob/cc09f3788d65f9694a0fbc1381681c701b802e47/packages/grid/x-data-grid/src/constants/localeTextConstants.ts
+      }}
+        autoHeight={true}
+        // density='comfortable'
+        pageSize={50}
         getRowId = {(row) => row.ID}
         rows = {items}
         columns = {columns}
@@ -149,7 +166,7 @@ function MyComponent() {
           },
         }}
       />
-      </div>
+      {/* </div> */}
       </Grid>
       </Grid>
    

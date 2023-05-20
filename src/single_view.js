@@ -13,7 +13,7 @@ import { Button, Container } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import {ModelMetadata} from './model_metadata';
 import { ImageGallery } from './image_gallery';
-
+import API_BASE_URL from './config';
 import Box from '@mui/material/Box';
 import Collapse from '@mui/material/Collapse';
 import IconButton from '@mui/material/IconButton';
@@ -111,7 +111,7 @@ function DataFetch() {
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    let url = `http://127.0.0.1:8000/stonelib/inscription/${ID}/`
+    let url = API_BASE_URL + `inscription/${ID}/`
     
     fetch(url)
       .then(res => res.json())

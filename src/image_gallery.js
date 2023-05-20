@@ -30,7 +30,7 @@ export function ImageGallery({ items }) {
           alt: image_type,
           srcSet: [{ src: low_image_path }, { src: high_image_path }],
           title: image_id,
-          description: image_type, 
+          description: image_type,
         };
 
         console.log(list_slides);
@@ -44,18 +44,23 @@ export function ImageGallery({ items }) {
     <div>
       {items === undefined ? (
         <Typography>NO IMAGES</Typography>
-      ) : (
-        items.images.length > 0 ? (
-          <div>
-            <Button onClick={() => setOpen(true)}> Открыть изображения модели </Button>
-            <Lightbox open={open} close={() => setOpen(false)} slides={listSlides} plugins={[Captions, Zoom]} 
+      ) : items.images.length > 0 ? (
+        <div>
+          <Button onClick={() => setOpen(true)}>
+            {" "}
+            Открыть изображения модели{" "}
+          </Button>
+          <Lightbox
+            open={open}
+            close={() => setOpen(false)}
+            slides={listSlides}
+            plugins={[Captions, Zoom]}
             zoom={{ ref: zoomRef }}
-            on={{click: () => zoomRef.current?.zoomIn() }} 
-            />
-          </div>
-        ) : (
-          <Typography>NO IMAGES TO DISPLAY</Typography>
-        )
+            on={{ click: () => zoomRef.current?.zoomIn() }}
+          />
+        </div>
+      ) : (
+        <Typography>NO IMAGES TO DISPLAY</Typography>
       )}
     </div>
   );

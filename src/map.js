@@ -3,7 +3,7 @@ import {render} from 'react-dom';
 import Container from '@mui/material/Container';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
-
+import API_BASE_URL from './config';
 import './map.css';
 import {Icon}  from "leaflet";
 import { orange, cyan } from '@mui/material/colors';
@@ -64,7 +64,7 @@ export function NewMap() {
   const [items, setItems] = useState([]);
 
   useEffect(() => {
-    fetch("http://127.0.0.1:8000/stonelib/map")
+    fetch(API_BASE_URL + "map")
       .then(res => res.json())
       .then(
         (result) => {
