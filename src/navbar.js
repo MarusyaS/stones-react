@@ -21,19 +21,19 @@ const links = [
   {
       // className: styles.className,
       // activeClassName: styles.activeClassName,
-      to: '/',
+      to: '/app',
       name: 'Homegrid',
       label: 'Домашнаяя страница'
   },
   {
       // className: styles.className,
       // activeClassName: styles.activeClassName,
-      to: '/inscriptions',
+      to: '/app/inscriptions',
       name: 'Grid',
       label: 'Каталог'
   }, 
   {
-    to: '/map',
+    to: '/app/map',
     name: 'Map',
     label: 'Карта'
   },

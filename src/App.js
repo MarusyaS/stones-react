@@ -22,10 +22,10 @@ export default function App() {
         <div>
           <ResponsiveAppBar />
           <Routes>
-              <Route path='/' element={<Homepage/>} errorElement={<ErrorPage />}/>
-              <Route path='/inscriptions' element={<GridView/>}/>
-              <Route path='/inscriptions/:ID' element={<SingleView/>}/>
-              <Route path='/map' element={<NewMap/>}/>
+              <Route path='/app/' element={<Homepage/>} errorElement={<ErrorPage />}/>
+              <Route path='/app/inscriptions' element={<GridView/>}/>
+              <Route path='/app/inscriptions/:ID' element={<SingleView/>}/>
+              <Route path='/app/map' element={<NewMap/>}/>
             {/* <Route path='*' element={<NoPage/>}/> */}
           </Routes>
         </div>
