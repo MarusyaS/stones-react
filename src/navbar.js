@@ -15,7 +15,7 @@ import AdbIcon from '@mui/icons-material/Adb';
 import { Link} from "react-router-dom";
 import {Homepage} from './homepage';
 import {GridView} from './grid_view';
-
+import { blueGrey, orange, cyan } from '@mui/material/colors';
 
 const links = [
   {
@@ -59,7 +59,7 @@ export function ResponsiveAppBar() {
     };
   
     return (
-      <AppBar position="static" color='secondary' >
+      <AppBar position="static" sx={{ backgroundColor: blueGrey[500]  }} >
         <Container maxWidth="xl">
           <Toolbar disableGutters>
             {/* <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} /> */}
@@ -67,14 +67,14 @@ export function ResponsiveAppBar() {
               variant="h6"
               noWrap
               component="a"
-              href="/"
+              href="/app"
               sx={{
                 mr: 2,
                 display: { xs: 'none', md: 'flex' },
                 fontFamily: 'monospace',
                 fontWeight: 700,
                 letterSpacing: '.3rem',
-                color: 'inherit',
+                color: cyan[900],
                 textDecoration: 'none',
               }}
             >
@@ -119,6 +119,7 @@ export function ResponsiveAppBar() {
 
           </Toolbar>
         </Container>
+
       </AppBar>
     );
   }

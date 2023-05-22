@@ -147,6 +147,42 @@ function MyComponent() {
   toolbarFiltersTooltipShow: 'Открыть',
   toolbarQuickFilterPlaceholder: 'Поиск...',
   toolbarQuickFilterLabel: 'Поиск',
+    // Density selector toolbar button text
+    toolbarDensity: 'Плотность',
+    toolbarDensityLabel: 'Плотность',
+    toolbarDensityCompact: 'Компактный',
+    toolbarDensityStandard: 'Стандартный',
+    toolbarDensityComfortable: 'Комфортный',
+     // Export selector toolbar button text
+  toolbarExport: 'Экспорт',
+  toolbarExportLabel: 'Экспорт',
+  toolbarExportCSV: 'Скачать CSV',
+  toolbarExportPrint: 'Печать',
+  toolbarExportExcel: 'Скачать Excel',
+  filterPanelOperators: 'Условие', // TODO v6: rename to filterPanelOperator
+  // filterPanelOperatorAnd: 'И',
+  // filterPanelOperatorOr: 'Или',
+  filterPanelColumns: 'Колонки',
+  filterPanelInputLabel: 'Зачение',
+  filterPanelInputPlaceholder: 'Фильтровать по значению...',
+  columnsPanelShowAllButton: 'Показать все',
+  columnsPanelHideAllButton: 'Скрыть все',
+
+    // Filter operators text
+    filterOperatorContains: 'содержит',
+    filterOperatorEquals: 'равно',
+    filterOperatorStartsWith: 'начинается с',
+    filterOperatorEndsWith: 'заканчивается на',
+    filterOperatorIs: 'is',
+    filterOperatorNot: 'is not',
+    filterOperatorAfter: 'is after',
+    filterOperatorOnOrAfter: 'is on or after',
+    filterOperatorBefore: 'is before',
+    filterOperatorOnOrBefore: 'is on or before',
+    filterOperatorIsEmpty: 'пусто',
+    filterOperatorIsNotEmpty: 'не пусто',
+    filterOperatorIsAnyOf: 'что-то из',
+    // https://mui.com/x/react-data-grid/filtering/
   // https://github.com/mui/mui-x/blob/cc09f3788d65f9694a0fbc1381681c701b802e47/packages/grid/x-data-grid/src/constants/localeTextConstants.ts
       }}
         autoHeight={true}

@@ -54,8 +54,8 @@ let model_path = (model_id !== 0) ? `https://rssda.su/auxil/${model_id}.html` : 
 
   return(
 
-  <Grid container spacing={3} rowSpacing={5} alignItems="stretch" justifyContent="space-evenly" sx={{ m: 2 }}>
-      <Grid item xs={5}>
+  <Grid container spacing={2} justifyContent="space-evenly" alignItems="stretch" sx={{ paddingTop: '40px' }} >
+      <Grid item xs={4}>
 
         <TableContainer component={Paper}  >
           <Table aria-label="simple table" >
@@ -75,26 +75,26 @@ let model_path = (model_id !== 0) ? `https://rssda.su/auxil/${model_id}.html` : 
 
         </TableBody>
       </Table>
+      <ImageGallery items={items}/>
     </TableContainer>
     </Grid>
-    <Grid item xs={7}>
+    <Grid item xs={6}>
       {model_id ? (
          <> 
       <iframe src = {model_path} name="model" width="100%" height="100%" />
       <Button variant="outlined" fullWidth = {true} href={model_path} >Полноэкранный режим</Button>
-      <ModelMetadata items={items}/>
+      <ModelMetadata items={items} />
       </>   
       ) : 
       <div> No model</div>
       } 
     </Grid>
 
-      <Grid container xs={7}> 
-      <Grid item>
-    {/* <ImageView items={items}/> */}
+      {/* <Grid container  > 
+      <Grid item xs={4}  >
     <ImageGallery items={items}/>
     </Grid>
-    </Grid>
+    </Grid> */}
     
      </Grid>  
         

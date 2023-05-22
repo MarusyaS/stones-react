@@ -93,7 +93,8 @@ export function NewMap() {
   } else {
 
     return (
-      <Grid container spacing={2}  alignItems="stretch" justifyContent="center" sx={{ m: 2 }}>
+      <Grid container spacing={2} justifyContent="space-evenly" alignItems="stretch" sx={{ paddingTop: '40px' }} >
+      {/* <Grid container spacing={2}  alignItems="stretch" justifyContent="center" sx={{ m: 2 }}> */}
       <Grid item xs={8}>
       {/* <Container  style={{height: '500', width: '600'}} sx={{ margin: 4 }} >         */}
       <Box>
@@ -114,14 +115,12 @@ export function NewMap() {
               icon = {item.Type.startsWith('П') ? L.divIcon({ html: `<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
               viewBox="0 0 100 100" xml:space="preserve">
               <circle style="fill:#ef6c00;stroke:#fcfcfc;stroke-width:4;stroke-miterlimit:10;"  cx="50" cy="50" r="46"/>
-              <text x="50%" y="50%" text-anchor="middle" fill="white" font-size="70px" font-family="Arial" dy=".3em">П</text>
               </svg>` , 
             className: "funerary",
             iconSize: [20, 20],
             iconAnchor: [10, 0]}) : L.divIcon({ html:`<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
 	          viewBox="0 0 100 100" xml:space="preserve">
             <circle style="fill:#006064;stroke:#fcfcfc;stroke-width:4;stroke-miterlimit:10;"  cx="50" cy="50" r="46"/>
-            <text x="50%" y="50%" text-anchor="middle" fill="white" font-size="70px" font-family="Arial" dy=".3em">Н</text>
             </svg>`, 
               className: "rock",
               iconSize: [20, 20],
@@ -149,7 +148,7 @@ export function NewMap() {
 
       </Grid>
 
-      <Grid item xs={4}>
+      <Grid item xs={3}>
         <Box>
         <Paper elevation={3}> 
 
@@ -158,7 +157,7 @@ export function NewMap() {
             <TableBody>
               <TableRow>
                 <TableCell align="center" colSpan={3} sx={{fontSize:23}}>
-                <Typography> Условные обозначения </Typography>
+                <Typography sx={{ fontWeight: 'bold' }}> Условные обозначения </Typography>
                 </TableCell>
                
               </TableRow>
@@ -170,7 +169,7 @@ export function NewMap() {
                   </TableRow>
                   <TableRow>
                   <TableCell> 
-                  <SquareIcon sx={{ color: cyan[900] }} />
+                  <CircleIcon sx={{ color: cyan[900] }} />
             </TableCell>
               <TableCell> <Typography> Наскальные надписи </Typography>  </TableCell>
                 </TableRow>

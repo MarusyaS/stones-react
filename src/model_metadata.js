@@ -44,7 +44,7 @@ export function ModelMetadata({ items }) {
               </IconButton>
             </TableCell>
             <TableCell component="th" scope="row">
-            <Typography variant="h8" gutterBottom component="div">
+            <Typography variant="h8" gutterBottom component="div" sx={{ fontWeight: 'medium' }}>
                     Метаданные
                   </Typography>
             </TableCell>            
@@ -54,7 +54,7 @@ export function ModelMetadata({ items }) {
             <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={5}>
               <Collapse in={open} timeout="auto" unmountOnExit>
                 <Box >
-                  <Table size="small" >
+                  <Table size="small" sx={{ maxWidth: '100%' }}>
                     <TableHead>
                       <TableRow size="small">
                         <TableCell  >Процесс</TableCell>
