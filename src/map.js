@@ -127,15 +127,32 @@ export function NewMap() {
               iconAnchor: [10, 0]})} 
           >
             <Popup>
-            <b> {item.NameToponim} </b> <br /> {item.NamePerson} <br/> Первое упоминание: {item.FirstNotion} <br /> Первые раскопки: {item.YearExcavate} <br />
+            <b> {item.NameToponim} </b> <br /> {item.NamePerson} <br/> 
+            {item.FirstNotion !== '' &&  item.FirstNotion !== null &&(
+            <>
+                  Первое упоминание: {item.FirstNotion} <br />
+                </>
+              )}
+              {item.YearExcavate !== '' && item.YearExcavate !== null &&(
+                <>
+                  Год: {item.YearExcavate} <br />
+                </>
+              )}
+              {item.inscriptions.map((elem) => (
+                <div>
+                  <Link to={`/ep_tur/inscriptions/${elem.ID}`} target="_blank">{elem.Name}</Link>
+                </div>
+              ))}
+
+            {/* Первое упоминание: {item.FirstNotion} <br /> Первые раскопки: {item.YearExcavate} <br />
               {item.inscriptions.map(
                 elem => (
                   <div>
-                   <Link to={`/inscriptions/${elem.ID}`} target="_blank">{elem.Name} </Link> 
+                   <Link to={`/ep_tur/inscriptions/${elem.ID}`} target="_blank">{elem.Name} </Link> 
                    </div>
                     // <br />  
                 )
-              )}
+              )} */}
             </Popup>
           </Marker> 
             )

@@ -5,7 +5,7 @@ import Zoom from "yet-another-react-lightbox/plugins/zoom";
 
 import "yet-another-react-lightbox/styles.css";
 import "yet-another-react-lightbox/plugins/captions.css";
-
+import { blueGrey, orange, cyan } from '@mui/material/colors';
 import Button from "@mui/material/Button";
 import { Typography } from "@mui/material";
 
@@ -46,7 +46,7 @@ export function ImageGallery({ items }) {
         <Typography>NO IMAGES</Typography>
       ) : items.images.length > 0 ? (
         <div>
-          <Button onClick={() => setOpen(true)}>
+          <Button variant="outlined"   sx = {{color : cyan[900]}} onClick={() => setOpen(true)}>
             {" "}
             Открыть изображения модели{" "}
           </Button>
@@ -60,7 +60,7 @@ export function ImageGallery({ items }) {
           />
         </div>
       ) : (
-        <Typography>NO IMAGES TO DISPLAY</Typography>
+        <Typography>Изображения отсутствуют</Typography>
       )}
     </div>
   );

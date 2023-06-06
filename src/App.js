@@ -2,6 +2,7 @@
 import {Homepage} from './homepage';
 import {GridView} from './grid_view';
 import {SingleView} from './single_view';
+import {Paradata} from './paradata';
 import {NewMap} from './map';
 import ErrorPage from "./error_page";
 import {ResponsiveAppBar} from './navbar';
@@ -22,10 +23,11 @@ export default function App() {
         <div>
           <ResponsiveAppBar />
           <Routes>
-              <Route path='/app/' element={<Homepage/>} errorElement={<ErrorPage />}/>
-              <Route path='/app/inscriptions' element={<GridView/>}/>
-              <Route path='/app/inscriptions/:ID' element={<SingleView/>}/>
-              <Route path='/app/map' element={<NewMap/>}/>
+              <Route path='/ep_tur/' element={<Homepage/>} errorElement={<ErrorPage />}/>
+              <Route path='/ep_tur/inscriptions' element={<GridView/>}/>
+              <Route path='/ep_tur/inscriptions/:ID' element={<SingleView/>}/>
+              <Route path='/ep_tur/map' element={<NewMap/>}/>
+              <Route path='/ep_tur/process' element={<Paradata/>}/>
             {/* <Route path='*' element={<NoPage/>}/> */}
           </Routes>
         </div>

@@ -15,27 +15,33 @@ import AdbIcon from '@mui/icons-material/Adb';
 import { Link} from "react-router-dom";
 import {Homepage} from './homepage';
 import {GridView} from './grid_view';
+import {Paradata} from './paradata';
 import { blueGrey, orange, cyan } from '@mui/material/colors';
 
 const links = [
   {
       // className: styles.className,
       // activeClassName: styles.activeClassName,
-      to: '/app',
+      to: '/ep_tur',
       name: 'Homegrid',
-      label: 'Домашнаяя страница'
+      label: 'О проекте'
   },
   {
       // className: styles.className,
       // activeClassName: styles.activeClassName,
-      to: '/app/inscriptions',
+      to: '/ep_tur/inscriptions',
       name: 'Grid',
       label: 'Каталог'
   }, 
   {
-    to: '/app/map',
+    to: '/ep_tur/map',
     name: 'Map',
     label: 'Карта'
+  },
+  {
+    to: 'ep_tur/process',
+    name: 'Paradata',
+    label: 'О моделях'
   },
 ]   
 
@@ -67,7 +73,7 @@ export function ResponsiveAppBar() {
               variant="h6"
               noWrap
               component="a"
-              href="/app"
+              href="/ep_tur"
               sx={{
                 mr: 2,
                 display: { xs: 'none', md: 'flex' },
