@@ -12,12 +12,6 @@ import { BrowserRouter as Router, Link, Routes, Route } from "react-router-dom";
 export default function App() {
   return(
     <>
-      {/* <header>
-        <a href='/'> Home</a>
-        <a href='/inscriptions'>Inscriptions</a>
-        <a href='/map'>Map</a>
-
-      </header> */}
 
       <Router>
         <div>

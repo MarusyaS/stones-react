@@ -1,68 +1,62 @@
-// import {ResponsiveAppBar} from './navbar';
-// import Box from '@mui/material/Box';
-// import Typography from '@mui/material/Typography';
-
-// const Homepage = () => {
-//     return (
-//         <div>
-//             <Box>
-//             <Typography variant='h3'>Портал Тюркская Руническая Эпиграфика</Typography>
-//             <h2>Что сделано:</h2>
-//             <ul>
-//                 <li><Typography>данные на сайт поступают из подключенной реляционной БД </Typography></li>
-//                 <li>на странице "Каталог" можно посмотреть (а также отфильтровать) список всех объектов БД </li>
-//                 <li>со страницы Каталога по клику на ID можно перейти на страничку объекта </li>
-//                 <li> на странице объекта добавлены модель и изображения </li>
-//                 <li>добавлена карта с легендой</li>
-//                 {/* <li></li>
-//                 <li></li> 
-//                 <li></li> 
-//                 <li></li>              
-//                  */}
-                
-                
-//             </ul>
-//             <h2> Что предстоит сделать:</h2>
-//                 <ul>
-//                     <li>добавить на карту поиск</li>
-//                     <li>добавить доп фильтры в Каталог "упоминается в перечне Базылхана/ДТС/.."</li>
-//                     <li>и многое другое...</li>
-//                     <li>таймлайн с находками?.. </li>
-                    
-                
-                
-//                 </ul>
-//                 </Box>
-//         </div>
-       
-//     )
-// }
-
-// export {Homepage}
-
 import Grid from '@mui/material/Grid';
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
+import { useNavigate } from 'react-router-dom';
 
+
+function ClickableBox({ link, children }) {
+  const navigate = useNavigate();
+
+  const handleBoxClick = () => {
+    navigate(link);
+  };
+  const boxStyles = {
+    // height: '200px',
+    // width: '200px',
+    backgroundColor: '#ede7dd',
+    border: '1px solid #ccc',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-evenly',
+    borderRadius: '16px',
+    padding: '10px',
+    textAlign: 'justify',
+    cursor: 'pointer',
+    
+  };
+
+  return (
+    <Box style={boxStyles} onClick={handleBoxClick}>
+      {children}
+    </Box>
+  );
+};
 
 export function Homepage() {
     const styles = {
         background: 'linear-gradient(45deg, #a3a5a8 30%, #ede7dd 90%)',
-        height: '800px',
+        height: '1020px',
         // 'linear-gradient(to bottom, #ede7dd, #2e4463)'
       };
+      
 
-      const boxStyles = {
-        height: '200px',
-        // width: '200px',
-        backgroundColor: '#f0f0f0',
-        border: '1px solid #ccc',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-evenly'
-      };
+      // const boxStyles = {
+      //   // height: '200px',
+      //   // width: '200px',
+      //   backgroundColor: '#ede7dd',
+      //   border: '1px solid #ccc',
+      //   display: 'flex',
+      //   alignItems: 'center',
+      //   justifyContent: 'space-evenly',
+      //   borderRadius: '16px',
+      //   padding: '10px',
+      //   textAlign: 'justify',
+      //   cursor: 'pointer',
+        
+      // };
 
         return (
             
@@ -77,38 +71,64 @@ export function Homepage() {
           >
             <Grid container direction="row" justifyContent="space-evenly" sx={{padding: 1, mb:7}}>
             <Grid item xs={4}>
-            <Box >
-                <Paper variant="outlined">
-                  <p>This is some content inside the Paper element.</p>
-                </Paper>
-              </Box>
+            <Box   >
+              <img src="./VE0300X.png" alt='illusrtation' />
+            </Box>
             </Grid>
-            <Grid item xs={6}>
+            <Grid container xs={6} direction="column"  justifyContent="space-evenly">
+              <Grid item> 
+          
+
             <Box >
-                {/* <Paper variant="outlined"> */}
-                <Typography variant="h3" gutterBottom color='#1f1a1a'>
+                <Typography variant="h3"  sx={{fontWeight: 'bold'}}   gutterBottom color='#1f1a1a'>
                 Тюркская руническая эпиграфика
                 </Typography>
                 <Typography variant="body1" gutterBottom align='justify' color='#1f1a1a' >
-                Тюркская руническая эпиграфика —  это некоммерческая инициатива лаборатории RSSDA, реализованная в рамках магистерской диссертации Сысоевой Марии под руководством Клышинского Эдуарда Станиславовича. Мы собираем и организуем данные о средневековой тюркской эпиграфике используя цифровые подходы. В частности, мы собираем данные о географическом контексте надписей, истории их изучения, а также их высокоточные трёхмерные полигональные модели и рендеры.
-                </Typography>    
-                  {/* <p> </p> */}
-                {/* </Paper> */}
-              </Box>
-            </Grid>
-          </Grid>
+                Тюркская руническая эпиграфика — это цифровой археологический проект, целью которого является сбор и предоставление трёхмерных цифровых копий тюркских надписей для исследований. Портал предоставляет доступ к пополняемой и уточняемой базе данных, собирающей следующую информацию о тюркских рунических надписях:
+                  <ul>
+<li> местонахождение памятника</li>
+<li>тип памятника: объект поминального комплекса или наскальная надпись</li>
+<li>различные вариации названий</li>
+<li>первое упоминание в научной публикации</li>
+<li>конкорданс сводных публикаций</li>
+<li>метаданные о представленных копиях</li>
+                  </ul>
+Проект реализован в рамках магистерской диссертации Сысоевой Марии под руководством Клышинского Эдуарда Станиславовича и сотрудничества с лабораторией RSSDA, предоставившей данные.
+</Typography>  
 
-<Grid container spacing={1} direction="row" justifyContent="space-evenly">
+              </Box>
+              </Grid>
+
 <Grid item>
-  <Box style={boxStyles}>Box 1</Box>
+<ClickableBox link="/ep_tur/inscriptions"   >
+  <Typography > Раздел <Box component="span" fontWeight="bold">Каталог </Box>
+
+   отображает надписи в табличном формате с функциями поиска, фильтрации и сортировки. По клику на идентификатор надписи можно перейти на страницу экземпляра.
+  </Typography>
+</ClickableBox>
 </Grid>
-<Grid item >
-  <Box style={boxStyles}>Box 2</Box>
+<Grid item>
+  <ClickableBox link="/ep_tur/map"   >
+    <Typography  >Раздел 
+      <Box component="span" fontWeight="bold"> Карта </Box>
+      визуализирует местонахождения в пространственном контексте. Каждое местонахождение содержит ссылки на страницы происходящих оттуда надписей. 
+      </Typography>
+
+      </ClickableBox>
 </Grid>
 <Grid item  >
-  <Box style={boxStyles}>Box 3</Box>
+<ClickableBox link="/ep_tur/process"   >
+    <Typography  >Раздел 
+      <Box component="span" fontWeight="bold"> О моделях 
+      </Box> содержит информацию о методике получения представленных моделей.</Typography> </ClickableBox>
 </Grid>
 </Grid>
+
+
+
+          </Grid>
+
+
 </Box>
         );
       }
