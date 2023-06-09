@@ -12,6 +12,8 @@ import Grid from '@mui/material/Grid';
 import { Button, Container } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import {ModelMetadata} from './model_metadata';
+import {MultipleModelMetadata} from './multiple_model_metadata';
+import {MultipleModelView} from './multiple_models_view';
 import { ImageGallery } from './image_gallery';
 import API_BASE_URL from './config';
 import Box from '@mui/material/Box';
@@ -243,24 +245,13 @@ sx={{height: '100%'}}
 >
 
 
-
+<Grid item>
 {/* <Grid container spacing={1} direction="column" justifyContent="space-evenly" alignItems="stretch" > */}
-      {items.models.map(
-        (model) => (
-          (model.ID) ? 
-        // Code to render each model goes here
-        <>
-             <React.Fragment key={model.ID}>
-              <Box sx={{width:'60px'}}></Box>
-        <Grid item > <iframe src = {`https://rssda.su/auxil/${model.ID.toLowerCase()}.html`} name="model" width="100%" height="100%" /> </Grid>
-        <Grid item ><Button variant="outlined"  sx = {{color : cyan[900]}} fullWidth = {true} 
-        // href={model_path} 
-        href={`https://rssda.su/auxil/${model.ID.toLowerCase()}.html`} 
-        >Полноэкранный режим</Button> </Grid>
-      <Grid item padding={2} mb='5' ><ModelMetadata items={items} /> </Grid>
-      </React.Fragment>
-      </> : null
-))}
+<MultipleModelView items={items}></MultipleModelView>
+</Grid>
+<Grid item>
+<MultipleModelMetadata items={items}></MultipleModelMetadata>
+</Grid>
     </Grid>
 </Grid>
 </Grid>    
@@ -295,7 +286,7 @@ function DataFetch() {
           }
           )
       }, 
-    // []
+    []
     ); 
     if (error) {
       return <div > Error: {

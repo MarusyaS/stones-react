@@ -88,10 +88,10 @@ export function Paradata() {
             </StepLabel>
             <StepContent>
               <Typography >{step.description}</Typography>
-              <Box   sx={{ minHeight: '100px',}}>
-              <img src="./model_scheme.png" alt='illustration' />
+              {/* <Box   sx={{ minHeight: '100px',}}> */}
+              {/* <img src="./model_scheme.png" alt='illustration' /> */}
               {/* <iframe src="iframe" loading="lazy"></iframe> */}
-              </Box>
+              {/* </Box> */}
               <Box sx={{ mb: 2 }}>
                 <div>
                   <Button
