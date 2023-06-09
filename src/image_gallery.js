@@ -5,7 +5,7 @@ import Zoom from "yet-another-react-lightbox/plugins/zoom";
 
 import "yet-another-react-lightbox/styles.css";
 import "yet-another-react-lightbox/plugins/captions.css";
-import { blueGrey, orange, cyan } from '@mui/material/colors';
+import { cyan } from '@mui/material/colors';
 import Button from "@mui/material/Button";
 import { Typography } from "@mui/material";
 
@@ -20,6 +20,7 @@ export function ImageGallery({ items }) {
       console.log("images" + items.images);
 
       ll = items.images.map((image) => {
+        console.log("image" + image.ID);
         let image_id = image.ID;
         let image_type = image.Type;
         let low_image_path = `https://www.rssdabase.su/RSSDA/imagery/ve/300px/${image_id}.png`;
@@ -33,7 +34,7 @@ export function ImageGallery({ items }) {
           description: image_type,
         };
 
-        console.log(list_slides);
+        console.log("LIST"+list_slides);
         return list_slides;
       });
     }
@@ -66,30 +67,3 @@ export function ImageGallery({ items }) {
   );
 }
 
-// function ImageView({ items }) {
-//     console.log('images' + items);
-//     if (items !== undefined){
-//         console.log('images' + items.images);
-
-//         if (items.images.length === 0) {
-//           return <div>No images</div>;
-//         }
-//       }
-
-//         return (
-//         <Grid container spacing={2}>
-//           {items.images.map((image) => {
-//             let image_id = image.ID;
-
-//             let low_image_path = `https://www.rssdabase.su/RSSDA/imagery/ve/300px/${image_id}.png`;
-//             let high_image_path = `https://www.rssdabase.su/RSSDA/imagery/ve/1000px/${image_id}.png`;
-
-//             return (
-//               <Grid item xs={4} key={image_id}>
-//                 <img src={low_image_path} alt={`Image ${image_id}`} />
-//               </Grid>
-//             )
-//           })}
-//         </Grid>
-//       );
-//     };

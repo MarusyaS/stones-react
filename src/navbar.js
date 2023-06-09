@@ -65,7 +65,11 @@ export function ResponsiveAppBar() {
     };
   
     return (
-      <AppBar position="static" sx={{ backgroundColor: blueGrey[500]  }} >
+      <AppBar position="static" 
+      // sx={{ backgroundColor: '#D1C59F' }}
+      sx={{ backgroundColor: '#9CB0A9' }}
+      
+       >
         <Container maxWidth="xl">
           <Toolbar disableGutters>
             {/* <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} /> */}
@@ -80,7 +84,7 @@ export function ResponsiveAppBar() {
                 fontFamily: 'monospace',
                 fontWeight: 700,
                 letterSpacing: '.3rem',
-                color: cyan[900],
+                color: '#090F08',
                 textDecoration: 'none',
               }}
             >
@@ -114,7 +118,7 @@ export function ResponsiveAppBar() {
                   key={link.name}
                   component={Link} to={link.to} 
                   // onClick={handleCloseNavMenu}
-                  sx={{ my: 2, color: 'white', display: 'block' }}
+                  sx={{ my: 2, color: '#090F08', display: 'block' }}
                 >
                   {link.label}
                 </Button>

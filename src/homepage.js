@@ -5,7 +5,7 @@ import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import { useNavigate } from 'react-router-dom';
-
+import {Link,  } from '@mui/material';
 
 function ClickableBox({ link, children }) {
   const navigate = useNavigate();
@@ -25,6 +25,7 @@ function ClickableBox({ link, children }) {
     padding: '10px',
     textAlign: 'justify',
     cursor: 'pointer',
+    color:'#1f1a1a',
     
   };
 
@@ -93,7 +94,10 @@ export function Homepage() {
 <li>конкорданс сводных публикаций</li>
 <li>метаданные о представленных копиях</li>
                   </ul>
-Проект реализован в рамках магистерской диссертации Сысоевой Марии под руководством Клышинского Эдуарда Станиславовича и сотрудничества с лабораторией RSSDA, предоставившей данные.
+                  Идея проекта и исходные данные принадлежат
+                  <Button sx={{color: "#1f1a1a"}} target="_blank" href="https://rssda.su/"> лаборатории RSSDA</Button> 
+                  . Проект реализован в рамках магистерской диссертации Сысоевой Марии под руководством Клышинского Эдуарда Станиславовича и Свойского Юрия Михайловича.  
+
 </Typography>  
 
               </Box>

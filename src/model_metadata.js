@@ -17,17 +17,23 @@ import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 export function ModelMetadata({ items }) {
     //   const { row } = items.models[0];
       const [open, setOpen] = React.useState(false);
-    //     const context = {
-    //     'ID' : 'ID',
-    //     'Process' : 'Процесс',
-    //     'Camera': 'Камера',
-    //     'Lens': 'Объектив',
-    //     'FrameCount' : 'Количество снимков',
-    //     'Scheme': 'Схема съёмки',
-    //     'Date':'Дата съёмки',
-    //     'PolygonCount' :'Количество полигонов, млн',
-    //     'PolygonCM' : 'Площадь поверхности, кв.см.' 
-    // };
+
+      const context = {
+        'ID' : 'ID',
+        'Process' : 'Процесс',
+        'Camera': 'Камера',
+        'Lens': 'Объектив',
+        'FrameCount' : 'Количество снимков',
+        'Scheme': 'Схема съёмки',
+        'Date':'Дата съёмки',
+        'Photographer': 'Полевое документирование',
+        'ModelProcesser' : 'Обработка данных',
+        'PolygonCountMaster' : 'Количество полигонов мастер модели, млн.',
+        'PolygonCountGeneral':'Количество полигонов общей модели, млн.',
+        'AreaCM' : 'Площадь поверхности, кв.см.',
+        'Site' : 'Нахождение',
+    };
+
       return (
         // <Grid item xs="auto" wrap="nowrap"> 
         // <Container maxWidth="sm">
@@ -61,34 +67,22 @@ export function ModelMetadata({ items }) {
         // height: 300,}} 
          >
                   <Table size="small" >
-                    <TableHead>
-                      <TableRow >
-                        <TableCell  >Процесс</TableCell>
-                        <TableCell>Камера</TableCell>
-                        <TableCell >Объектив</TableCell>
-                        <TableCell >Количество снимков</TableCell>
-                        <TableCell align="right">Схема съёмки</TableCell>
-                        <TableCell align="right">Дата съёмки</TableCell>
-                        <TableCell style={{ width: '10%' }} align="right">Количество полигонов, млн</TableCell>
-                        <TableCell style={{ width: '10%' }} align="right">Площадь поверхности, кв.см.</TableCell>
-                      </TableRow>
-                    </TableHead>
-                    <TableBody>
-                        <TableRow  key={items.models[0].ID} >
-                          <TableCell component="th" scope="row">
-                            {items.models[0].Process}
-                          </TableCell>
-                          <TableCell>{items.models[0].Camera}</TableCell>
-                          <TableCell>{items.models[0].Lens}</TableCell>
-                          <TableCell>{items.models[0].FrameCount}</TableCell>
-                          <TableCell align="right">{items.models[0].Scheme}</TableCell>
-                          <TableCell align="right">{items.models[0].Date}</TableCell>
-                          <TableCell align="right" style={{ width: '10%' }}>{items.models[0].PolygonCount}</TableCell>
-                          <TableCell align="right" style={{ width: '10%' }}>{items.models[0].PolygonCM}</TableCell>
-    
-                        </TableRow>
-                
-                    </TableBody>
+                    
+                      
+                  <TableHead>
+    <TableRow>
+      {Object.keys(context).filter(key => key && items.models[0][key]).map((key) => (
+        <TableCell key={key}>{context[key]}</TableCell>
+      ))}
+    </TableRow>
+  </TableHead>
+  <TableBody>
+    <TableRow>
+      {Object.keys(context).filter(key => key && items.models[0][key]).map((key) => (
+        <TableCell key={key}>{items.models[0][key]}</TableCell>
+      ))}
+    </TableRow>
+  </TableBody>
                   </Table>
                 </Box>
               </Collapse>
