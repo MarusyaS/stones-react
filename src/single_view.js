@@ -3,26 +3,18 @@ import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { Link, useParams } from "react-router-dom";
 import {useEffect, useState} from "react";
 import Grid from '@mui/material/Grid';
-import { Button, Container } from '@mui/material';
-import { styled } from '@mui/material/styles';
+import { Button } from '@mui/material';
 import {ModelMetadata} from './model_metadata';
 import {MultipleModelMetadata} from './multiple_model_metadata';
 import {MultipleModelView} from './multiple_models_view';
 import { ImageGallery } from './image_gallery';
 import API_BASE_URL from './config';
-import Box from '@mui/material/Box';
-import Collapse from '@mui/material/Collapse';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
-import { blueGrey, orange, cyan } from '@mui/material/colors';
+import { cyan } from '@mui/material/colors';
 
 export function SingleView() {
     return ( 
@@ -30,12 +22,7 @@ export function SingleView() {
       <DataFetch> </DataFetch>
     </div>
     );
-  };
-
-  
-
-
-    
+  };   
 
 
 function BasicTable({ items }) {
@@ -115,7 +102,7 @@ let model_path = (model_id !== 0) ? `https://rssda.su/auxil/${model_id}.html` : 
     
       {items.related_inscriptions.map(insc => (
           <div>
-          <Link  component="button" variant="body2" to={'/ep_tur/inscriptions/' + `${insc.ID}`} target="_blank">{insc.Name}</Link>
+          <Link  component="button" variant="body2" to={`/ep_tur/inscriptions/${insc.ID}`} target="_blank">{insc.Name}</Link>
           </div>
       ))}
   </div>
@@ -137,7 +124,7 @@ let model_path = (model_id !== 0) ? `https://rssda.su/auxil/${model_id}.html` : 
 
       {model_id ? (
          <> 
-      <Grid item xs={9}><iframe src = {model_path} name="model" width="100%" height="100%" /> </Grid>
+      <Grid item xs={9}><iframe title = {model_id} src = {model_path} name="model" width="100%" height="100%" /> </Grid>
       <Grid item ><Button variant="outlined"  sx = {{color : cyan[900]}} fullWidth = {true} href={model_path} >Полноэкранный режим</Button> </Grid>
      <Grid item padding={2} mb='5' ><ModelMetadata items={items} /> </Grid>
       </>   
@@ -224,7 +211,7 @@ sx={{height: '100%', }}
 <div>
 {items.related_inscriptions.map(insc => (
     <div>
-    <Link  component="button" variant="body2" to={'/ep_tur/inscriptions/' + `${insc.ID}`} target="_blank">{insc.Name}</Link>
+    <Link  component="button" variant="body2" to={`/ep_tur/inscriptions/${insc.ID}`} target="_blank">{insc.Name}</Link>
     </div>
 ))}
 </div>
