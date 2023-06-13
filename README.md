@@ -1,3 +1,12 @@
+# Фронтенд для портала тюркских рунических надписей
+
+http://sandbox.rssda.su/ep_tur
+Реализован с помощью React
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
