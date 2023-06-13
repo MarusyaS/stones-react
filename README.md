@@ -31,15 +31,15 @@ http://sandbox.rssda.su/ep_tur
 ## Навигация по коду проекта
 
 Портал состоит из 5 основных страниц. Код находится в папке src\ :
-1) О проекте
+1) О проекте: 
    homepage.js, navbar.js
-3) Каталог надписей
+3) Каталог надписей: 
    grid_view.js
-5) Одна надпись
+5) Одна надпись: 
    single_view.js, model_metadata.js, multiple_model_metadata.jsx, multiple_models_view.jsx, image_gallery.js
-6) Карта
+6) Карта: 
    map.js
-7) О моделях
+7) О моделях: 
    paradata.jsx
 
 ## Документация React
